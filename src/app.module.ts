@@ -10,7 +10,7 @@ import { Product } from './products/entities/product.entity';
   imports: [ProductsModule,
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
+      host: 'db',
       port: 3306,
       username: 'root',
       password: 'password',

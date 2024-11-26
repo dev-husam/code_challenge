@@ -52,9 +52,13 @@ export class ProductsService {
   async remove(id: number) {
     await this.findOneOrExption(id)
 
-    const res = await this.productModel.destroy({ where: { id }, })
+    const deletedCount = await this.productModel.destroy({ where: { id } });
 
-    return res
+    if (!deletedCount) {
+      throw new Error(`Failed to delete product with ID ${id}`);
+    }
+
+    return { message: `Product with ID ${id} was successfully deleted.` };
 
 
   }
