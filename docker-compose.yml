@@ -8,6 +8,7 @@ services:
     environment:
       - PORT=8080
       - NODE_ENV=development
+      - DB_HOST=db
     volumes:
       - ./src:/usr/apps/src
     depends_on:
